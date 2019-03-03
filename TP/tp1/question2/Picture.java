@@ -20,6 +20,8 @@ public class Picture {
     private Square window;
     private Triangle roof;
     private Circle sun;
+    private Circle sunJaune;
+    private int yPosition;
 
     /**
      * Constructor for objects of class Picture
@@ -50,11 +52,18 @@ public class Picture {
         roof.makeVisible();
 
         sun = new Circle();
-        sun.changeColor("yellow");
+        sun.changeColor("blue");
         sun.moveHorizontal(180);
         sun.moveVertical(-10);
         sun.changeSize(60);
         sun.makeVisible();
+        
+        sunJaune = new Circle();
+        sunJaune.changeColor("yellow");
+        sunJaune.moveHorizontal(180);
+        sunJaune.moveVertical(50);
+        sunJaune.changeSize(60);
+        sunJaune.makeVisible();
     }
 
     /**
@@ -82,5 +91,59 @@ public class Picture {
             sun.changeColor("yellow");
         }
     }
+   
+/**
+     * Slowly move the circle vertically by 'distance' pixels.
+     */
+    public void slowMoveVertical(int distance) {
+       int delta;
 
+        if (distance < 0) {
+            delta = -1;
+            distance = -distance;
+        } else {
+            delta = 1;
+        }
+
+        for (int i = 0; i < distance; i++) {
+            yPosition += delta;
+            draw2(yPosition);
+        }
+    }
+    /**
+     * Draw this picture.
+     */
+    public void draw2(int yPosition) {
+        wall = new Square();
+        wall.moveVertical(80);
+        wall.changeSize(100);
+        wall.makeVisible();
+
+        window = new Square();
+        window.changeColor("black");
+        window.moveHorizontal(20);
+        window.moveVertical(100);
+        window.makeVisible();
+
+        roof = new Triangle();
+        roof.changeSize(50, 140);
+        roof.moveHorizontal(60);
+        roof.moveVertical(70);
+        roof.makeVisible();
+
+        sun = new Circle();
+        sun.changeColor("blue");
+        sun.moveHorizontal(180);
+        sun.moveVertical(yPosition);
+        sun.changeSize(60);
+        sun.makeVisible();
+        
+        sunJaune = new Circle();
+        sunJaune.changeColor("yellow");
+        sunJaune.moveHorizontal(180);
+        sunJaune.moveVertical(50);
+        sunJaune.changeSize(60);
+        sunJaune.makeVisible();
+    }
+    
 }

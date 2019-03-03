@@ -66,17 +66,17 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
 
     /** Un test de la méthode toString(). */
     public void test_toString() {
-        question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM("Dupont",
-                "paul", "03-1234");
-        assertEquals("Dupont paul login : dupont_p", auditeur1.toString());
+        question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM("Ahmad",
+                "Mouhamad", "6046-f");
+        assertEquals("Ahmad Mouhamad login : ahmadm_o", auditeur1.toString());
     }
 
     public void test_nom_court() {
-        question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM("paul",
-                "pierre", "12345");
-        assertEquals("paul", auditeur1.nom());
-        assertEquals("pierre", auditeur1.prenom());
-        assertEquals("paul_p", auditeur1.login());
+        question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM("ahmad",
+                "mouhamad", "12345");
+        assertEquals("ahmad", auditeur1.nom());
+        assertEquals("mouhamad", auditeur1.prenom());
+        assertEquals("ahma_d", auditeur1.login());
     }
 
     public void test_nom_court_bis() {
